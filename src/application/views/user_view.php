@@ -3,15 +3,14 @@
     <head>
             <?php  $CI =& get_instance();?>
             <meta charset="UTF-8">
-            <title>Dumbu-Leads</title>
+            <title>MyLeads</title>
             <meta name="viewport" content="width=device-width">
-            <link rel="icon" type="image/png" href="<?php echo base_url().'assets/img/icon.png'?>">
+            <!--<link rel="icon" type="image/png" href="<?php echo base_url().'assets/img/icon.png'?>">-->
 
             <script type="text/javascript">var base_url ='<?php echo base_url()?>';</script>
             <script type="text/javascript">var language ='<?php echo $GLOBALS['language']?>';</script>
             
             <!-- Font Awesome -->
-            <!--<link rel="stylesheet" href="<?php // echo base_url().'assets/fonts/font-awesome.min.css'?>">-->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">            
             
             
@@ -22,7 +21,6 @@
             <!-- Bootstrap -->
             <link rel="stylesheet" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>"/>
             <link rel="stylesheet" href="<?php echo base_url().'assets/bootstrap/css/bootstrap-multiselect.css'?>"/>
-            <!--<link rel="stylesheet" href="<?php //echo base_url().'assets/bootstrap/css/bootstrap-datepicker.min.css'?>"/>-->
             
             <!-- CSS -->
             <link rel="stylesheet" href="<?php echo base_url().'assets/css/estilo.css?'.$SCRIPT_VERSION;?>"/>
@@ -40,41 +38,19 @@
             <script src="<?php echo base_url().'assets/js/ladda.min.js'?>"></script>
             
             <!-- Global site tag (gtag.js) - Google Ads: 862085589 --> 
-            <script async src="https://www.googletagmanager.com/gtag/js?id=AW-862085589">
-            </script> 
+            <!--<script async src="https://www.googletagmanager.com/gtag/js?id=AW-862085589"></script>--> 
             <script> 
                 window.dataLayer = window.dataLayer || []; 
                 function gtag(){dataLayer.push(arguments);} 
                 gtag('js', new Date()); gtag('config', 'AW-862085589'); 
             </script>
             <!-- Event snippet for Cadastro Leads conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> 
-            <script> 
+<!--            <script> 
                 function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-862085589/9HIuCPaghIgBENXDiZsD', 'event_callback': callback }); return false; } 
-            </script>
+            </script>-->
     </head>
     <body>
     <section class="topo-home fleft100 bk-black">
-<!--            <header class="fleft100 pd-tb20 m-top20">
-                    <div class="container pd-lr60 pd-lr15-xs">
-                            <div class="col-md-4 col-sm-6 col-xs-7 pull-right text-right m-top10-xs menu">
-                                    <a href="www.dumbu.pro/dumbu/src" class="a-border i-block hidden-xs">Quer seguidores? <br>Clique aqui</a>
-                                    <div class="dropdown i-block">
-                                      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="b-none bk-none cl-fff ft-size13">
-                                          <img src="<?//php echo base_url().'assets/img/user.png'?>" alt=""> ENTRAR
-                                      </button>
-                                      <form class="dropdown-menu" aria-labelledby="dLabel">
-                                        <input type="text" class="form-control fleft100" placeholder="Usuário">
-                                        <input type="text" class="form-control fleft100 m-top10" placeholder="Senha">
-                                        <button type="button" class="btn btn-success fleft100 m-top10">Entrar</button>
-                                      </form>
-                                    </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-5 pull-right text-center left-xs logo m-top8 m-none-xs">
-                                    <a href=""><img src="<?php //echo base_url().'assets/img/logo.png'?>" alt="Logo-image"/></a>
-                            </div>		
-                    </div>
-            </header>-->
-            
             <header class="">
                 <div class="container">
                     <div id="dl-menu" class="dl-menuwrapper">
@@ -91,7 +67,6 @@
                                     </a>
                                 </li>                                                                
                                 <li>
-                                    <!--<a href="#"><?php // echo $CI->T("ENTRAR", array(),$language);?></a>-->
                                     <?php
                                     if($this->session->userdata('login') && $this->session->userdata('module') == "LEADS"){
                                         if($this->session->userdata('is_admin')==TRUE){
@@ -222,12 +197,12 @@
                         <nav class="navbar navbar-default navbar-static-top" style="background-color:transparent; margin-top:20px">
                             <div class="logo pabsolute fleft100" style="text-align:center; width:95%;">
                                 <a class="navbar-brand i-block" href="#">
-                                    <img alt="Brand" src="<?php echo base_url().'assets/img/logo.png'?>">
+                                    <img src="<?php echo base_url().'assets/img/logo-header-myleads.png'?>" alt="MyLeads">
                                 </a>
                             </div>
                             <ul class="nav navbar-nav navbar-right menu-principal">
                                 <li >
-                                    <a href="https://dumbu.pro/dumbu/src" class="a-border i-block hidden-xs text-right"><?php echo $CI->T("Quer seguidores?", array(),$language);?> <br><?php echo $CI->T("Clique aqui", array(),$language);?></a>
+                                    <!--<a href="https://dumbu.pro/dumbu/src" class="a-border i-block hidden-xs text-right"><?php echo $CI->T("Quer seguidores?", array(),$language);?> <br><?php echo $CI->T("Clique aqui", array(),$language);?></a>-->
                                 </li>
                                 <li>
                                     <a href="#lnk_sign_in_now">
@@ -376,12 +351,7 @@
                 </div>
             </header>
 
-
-
-
-
-
-            <div class="container text-center topo cl-fff">
+                <div class="container text-center topo cl-fff">
                     <div class="col-md-10 col-sm-12 col-xs-12 fnone i-block">
                             <!--<div class="fleft100 text-left center-xs"><small><?php // echo $CI->T("NOVIDADE", array(),$language);?></small></div>-->
                             <h1 class="cl-blue fw-900 m-top15 fleft100"><?php echo $CI->T("Extraia dados de futuros clientes usando o Instagram.", array(),$language);?></h1>
@@ -393,7 +363,10 @@
                                                     <img src="<?php echo base_url().'assets/img/$.png'?>" alt=""/>
                                             </div>
                                             <div class="col-md- 9 col-sm-9 col-xs-12 text-left center-xs m-top5">
-                                                    <h4><?php echo $CI->T("A partir de ", array(),$language).$currency_symbol." ".number_format((float)$price_lead/100, 2, '.', '').$CI->T(" por leads ÚNICOS extraídos", array(),$language);?></h4>
+                                                    <h4>
+                                                        Extraia leads ilimitados
+                                                        <?php //echo $CI->T("A partir de ", array(),$language).$currency_symbol." ".number_format((float)$price_lead/100, 2, '.', '').$CI->T(" por leads ÚNICOS extraídos", array(),$language);?>
+                                                    </h4>
                                             </div>
                                     </div>
                                     <div class="fleft100 blseta m-top40">
@@ -482,13 +455,6 @@
                     </div>
             </div>
 
-            <div class="fleft100 gb cl-fff text-center pd-tb40">
-                    <div class="container">
-                            <img src="<?php echo base_url().'assets/img/gbl.png'?>" alt="">
-                            <h3 class="m-top15"><?php echo $CI->T("Dumbu é global!", array(),$language);?></h3>
-                            <span class="ft-size17"><?php echo $CI->T("Temos clientes em mais de 200 países.  Faça parte de uma das Startups que mais cresce nos últimos tempos!", array(),$language);?></span>
-                    </div>
-            </div>
     </section>
         
     <section class="fleft100">
@@ -516,7 +482,7 @@
                             <div class="fleft100 pass passblue">
                                     <div class="col-md-1 col-sm-2 col-xs-12 pd-0 text-center ft-size24 fw-600">3</div>
                                     <div class="col-md-11 col-sm-10 col-xs-12 pd-lr5 fw-600">
-                                        <?php echo $CI->T("A Dumbu fará uma lista  exportável com informações de contas baseada nos perfis, hashtags ou locais que você deseja", array(),$language);?>                                            
+                                        <?php echo $CI->T("A ferramenta fará uma lista  exportável com informações de contas baseada nos perfis, hashtags ou locais que você deseja", array(),$language);?>                                            
                                     </div>
                             </div>
                     </div>
@@ -621,10 +587,10 @@
                                                         <button type="button" id="do_signin" class="btn btn-success fleft100 m-top30"><?php echo $CI->T("CRIAR CONTA", array(),$language);?></button>                                                                                                                 
                                                         </div>
                                                         <div class="checkbox m-top10 fleft100">
-                                                          <label style="font-size: 11px;">
+<!--                                                          <label style="font-size: 11px;">
                                                               <input id = "terms_checkbox" type="checkbox" checked="true" style="position: relative;top:2px;">&nbsp; <?php echo $CI->T("Declaro que li e aceito os ", array(),$language);?>
                                                               <a href="<?php echo base_url()."assets/others/".$GLOBALS['language']."/TERMOS DE USO DUMBU.pdf"; ?>"> <?php echo $CI->T("termos de uso", array(),$language);?> </a>                     
-                                                          </label>
+                                                          </label>-->
                                                         </div>
                                                     </div>                                                    
                                             </form>	
@@ -679,8 +645,8 @@
                             </form>
 
                             <div class="fleft100 m-top40">
-                                    <img src="<?php echo base_url().'assets/img/copy.png'?>" alt="">
-                                    <span class="fleft100 cp m-top15">DUMBU - 2018 - <?php echo $CI->T("TODOS OS DIREITOS RESERVADOS", array(),$language);?></span>
+                                    <img src="<?php echo base_url().'assets/img/logo-footer-myleads.png'?>" alt="MyLeads">
+                                    <span class="fleft100 cp m-top15"><?php echo $CI->T("TODOS OS DIREITOS RESERVADOS", array(),$language);?></span>
                             </div>
                     </div>
             </div>

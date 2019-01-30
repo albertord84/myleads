@@ -171,9 +171,9 @@ namespace leads\cls {
                     }
 
                     //2.4 salvar o perfil para ser usado no futuro
-                    if ($multi_level && $leads->follower_count && $leads->follower_count > 300 && $multi_level_result->table_to_profiles !== 'not_insert_profile_to_future') {
-                        $this->DB->insert_future_reference_profile($multi_level_result->table_to_profiles, $leads->ds_user_id, $leads->username);
-                    }
+//                    if ($multi_level && $leads->follower_count && $leads->follower_count > 300 && $multi_level_result->table_to_profiles !== 'not_insert_profile_to_future') {
+//                        $this->DB->insert_future_reference_profile($multi_level_result->table_to_profiles, $leads->ds_user_id, $leads->username);
+//                    }
                 }
                 //3. ver se perfil chegou ao fim, se não, salvar o cursor
                 if ($cursor !== null && $new_cursor === null) {

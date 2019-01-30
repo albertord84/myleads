@@ -189,7 +189,7 @@
                                 <div class="col-md-11 col-sm-11 col-xs-12 pd-lr5 pd-0-xs">
                                     <span class="fw-600 fleft100 text-left pd-lr15 center-xs"><?php echo $CI->T("Orçamento diário em ", array(),$language).$currency_symbol; ?></span>
                                     <div class="col-md-4 col-sm-4 col-xs-12">
-                                            <input id="daily_value" type="text" placeholder="0.00" value="0.00" class="orc number">
+                                            <input id="daily_value" type="text"  value="300.00" class="orc number">
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-12 text-left center-xs m-top10-xs pd-lr5">
                                             <!--<span class="ft-size11 fw-600 fleft100"><?php // echo $CI->T("Gasto atual: ", array(),$language);?><br>R$0,00 de <span class="cl-green">R$0,00</span></span>-->
@@ -694,7 +694,7 @@
                     <header class="fleft100 pd-tb20">
                             <div class="container">
                                     <div class="col-md-8 col-sm-6 col-xs-6 col-md-offset-2">
-                                        <a href=""><img src="<?php echo base_url().'assets/img/logo.png'?>" alt=""></a>
+                                        <a href=""><img src="<?php echo base_url().'assets/img/logo-header-myleads.png'?>" alt="MyLeads"></a>
                                     </div>                                    
                                     <div class="col-md-1 col-sm-6 col-xs-6 text-right">                                         
                                         <a style="color:white;text-decoration:none;" href="<?php echo base_url().'index.php/welcome/index'; ?>">
@@ -716,13 +716,13 @@
                     <div class="container">
                             <div class="col-md-2 col-sm-12 col-xs-12 sidbar">
                                     <ul>
-                                            <li><a href="https:/www.dumbu.pro"><?php echo $CI->T("Captação de Seguidores", array(),$language);?></a></li>
+                                            <!--<li><a href="https:/www.dumbu.pro"><?php //echo $CI->T("Captação de Seguidores", array(),$language);?></a></li>-->
                                             <!--<li><a href="">Extração de Leads</a></li>-->
-                                            <li><a href="" data-toggle="modal" data-target="#pagamento"><b><u><?php echo $CI->T("Pagamentos", array(),$language);?></u></b></a></li>                                            
+                                            <!--<li><a href="" data-toggle="modal" data-target="#pagamento"><b><u><?php //echo $CI->T("Pagamentos", array(),$language);?></u></b></a></li>-->                                            
                                             <!--<li><a href="" data-toggle="modal" data-target="#cupom_modal"><?php // echo $CI->T("Pré-pagos", array(),$language);?></a></li>-->
-                                            <?php if($this->session->userdata('brazilian')==1){?>
-                                                <li><a href="" data-toggle="modal" data-target="#cupom50_modal"><?php echo $CI->T("Tem cupom?", array(),$language);?></a></li>
-                                            <?php }?>
+                                            <?php //if($this->session->userdata('brazilian')==1){?>
+                                                <!--<li><a href="" data-toggle="modal" data-target="#cupom50_modal"><?php echo $CI->T("Tem cupom?", array(),$language);?></a></li>-->
+                                            <?php //}?>
                                             <li><a target="_blank"  href=<?php echo base_url().'index.php/welcome/faqget?language='.$language ?> ><?php echo $CI->T("Contato / FAQ", array(),$language);?></a></li>
                                     </ul>
                             </div>
@@ -987,8 +987,8 @@
             <footer class="fleft100 pd-tb50 bk-fff text-center">
                     <div class="container">
                             <div class="fleft100 m-top40">
-                                    <img src="<?php echo base_url().'assets/img/copy.png'?>" alt="">
-                                    <span class="fleft100 cp m-top15">DUMBU - 2018 - <?php echo $CI->T("TODOS OS DIREITOS RESERVADOS", array(),$language);?></span>
+                                    <img src="<?php echo base_url().'assets/img/logo-footer-myleads.png'?>" alt="MyLeads">
+                                    <span class="fleft100 cp m-top15"><?php echo $CI->T("TODOS OS DIREITOS RESERVADOS", array(),$language);?></span>
                             </div>
                     </div>
             </footer>

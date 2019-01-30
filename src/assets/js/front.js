@@ -228,7 +228,7 @@ $(document).ready(function () {
             if (validate_element('#email_registration', "^[a-zA-Z0-9\._-]+@([a-zA-Z0-9-]{2,}[.])*[a-zA-Z]{2,4}$")) {
                 if (validate_element('#user_registration', '^[a-zA-Z][\._a-zA-Z0-9]{0,99}$')) {
                     if (validate_element('#telf_registration', '^[0-9]{0,15}$')) {
-                        if($('#terms_checkbox').is(":checked")) {                        
+                        //if($('#terms_checkbox').is(":checked")) {                        
                             var l = Ladda.create(this);  l.start();
                             $.ajax({
                                 url: base_url + 'index.php/welcome/signin',
@@ -262,12 +262,12 @@ $(document).ready(function () {
                                     l.stop();
                                 }
                             });                         
-                        }else{
-                            message_container(T('Deve aceitar os termos de uso!',language),'#container_sigin_message','red');                        
-                            $('#terms_checkbox').css('outline-color', 'red');
-                            $('#terms_checkbox').css('outline-style', 'solid');
-                            $('#terms_checkbox').css('outline-width', 'thin');                        
-                        }
+//                        }else{
+//                            message_container(T('Deve aceitar os termos de uso!',language),'#container_sigin_message','red');                        
+//                            $('#terms_checkbox').css('outline-color', 'red');
+//                            $('#terms_checkbox').css('outline-style', 'solid');
+//                            $('#terms_checkbox').css('outline-width', 'thin');                        
+//                        }
                     }
                     else{
                         message_container(T('O telefone só pode conter números!',language),'#container_sigin_message','red');                                            
@@ -297,7 +297,7 @@ $(document).ready(function () {
                     if (validate_element('#telf_registration', '^[0-9]{0,15}$')) {
                         if (validate_element('#number_confirmation', '^[0-9]{4,4}$')) {
                         
-                            if($('#terms_checkbox').is(":checked")) {                        
+//                            if($('#terms_checkbox').is(":checked")) {
                                 var l = Ladda.create(this);  l.start();
                                 $.ajax({
                                     url: base_url + 'index.php/welcome/signin_number',
@@ -327,12 +327,12 @@ $(document).ready(function () {
                                         l.stop();
                                     }
                                 });                         
-                            }else{
-                                message_container(T('Deve aceitar os termos de uso!',language),'#container_sigin_message','red');                        
-                                $('#terms_checkbox').css('outline-color', 'red');
-                                $('#terms_checkbox').css('outline-style', 'solid');
-                                $('#terms_checkbox').css('outline-width', 'thin');                        
-                            }
+//                            }else{
+//                                message_container(T('Deve aceitar os termos de uso!',language),'#container_sigin_message','red');                        
+//                                $('#terms_checkbox').css('outline-color', 'red');
+//                                $('#terms_checkbox').css('outline-style', 'solid');
+//                                $('#terms_checkbox').css('outline-width', 'thin');                        
+//                            }
                         }
                         else{
                             message_container(T('Deve ser um código de 4 números!',language),'#container_sigin_message','red');                                            

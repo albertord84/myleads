@@ -3,7 +3,7 @@
 require_once 'class/Worker.php';
 require_once 'class/system_config.php';
 $GLOBALS['sistem_config'] = new leads\cls\system_config();
-$b=$GLOBALS['sistem_config']->BASE_PATH_URL;
+$b=$_SERVER['DOCUMENT_ROOT'];
 require_once 'class/Gmail.php';
 require_once 'class/Payment.php';
 

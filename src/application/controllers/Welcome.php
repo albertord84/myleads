@@ -229,7 +229,8 @@ class Welcome extends CI_Controller {
         if (!$this->session->userdata('id')){
             $this->load->model('class/user_model');
             
-            $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
             $login = trim($datas['login']);
             $email = $datas['email'];
             $language = $datas['language'];
@@ -293,7 +294,8 @@ class Welcome extends CI_Controller {
         if (!$this->session->userdata('id')){
             $this->load->model('class/user_model');
             
-            $datas = $this->input->post();            
+	    $datas = $this->input->post();            
+	    $datas = $_POST;
             $new_pass = $datas['new_pass'];
             $token = $datas['token'];
             $login = $datas['login'];
@@ -479,7 +481,11 @@ class Welcome extends CI_Controller {
     }
     
     public function signin() {
-        $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
+	    #var_dump($data);
+	    #var_dump($_POST);
+	    #return;
         $this->load_language($datas['language']);
         $promotion = $this->validate_promotional_code($datas);
         if(!$promotion['success']){
@@ -577,7 +583,8 @@ class Welcome extends CI_Controller {
     }
     
     public function signin_number() {
-        $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
         $this->load_language($datas['language']);
         
         if (!$this->session->userdata('id')){
@@ -696,7 +703,8 @@ class Welcome extends CI_Controller {
         if ($this->session->userdata('id')){            
             $this->load->model('class/user_model');
             $this->load->model('class/daily_work_model');        
-            $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
             $datas['client_login'] = $this->session->userdata('login');
             $datas['check_pass'] = false;    //check only by the user name
             
@@ -746,7 +754,8 @@ class Welcome extends CI_Controller {
     }
     
     public function login() {
-        $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
         $this->load_language($datas['language']);
         
         if (!$this->session->userdata('id')){
@@ -807,7 +816,8 @@ class Welcome extends CI_Controller {
         $this->load_language();
         if ($this->session->userdata('id')){            
             $this->load->model('class/user_model');
-            $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
             $datas['check_pass'] = false; 
             $datas['client_login'] = $this->session->userdata('login');
             
@@ -850,7 +860,8 @@ class Welcome extends CI_Controller {
             $profiles_insta_temp = $this->session->userdata('profiles_insta_temp');
             
             if( count($profiles_insta_temp) < $max_amount ){
-                $datas = $this->input->post();
+		    $datas = $this->input->post();
+		    $datas = $_POST;
                 
                 if($datas['profile_insta_temp'] > 0 && !$profiles_insta_temp[$datas['profile_insta_temp']]){
                     
@@ -966,7 +977,8 @@ class Welcome extends CI_Controller {
             $profiles_insta_temp = $this->session->userdata('profiles_insta_temp');
             
             if( count($profiles_insta_temp) > 0 ){
-                $datas = $this->input->post();
+		    $datas = $this->input->post();
+		    $datas = $_POST;
                 
                 unset($profiles_temp[$datas['profile_insta_temp']]);
                 unset($profiles_type_temp[$datas['profile_insta_temp']]);
@@ -1020,7 +1032,8 @@ class Welcome extends CI_Controller {
                 $GLOBALS['sistem_config'] = $this->system_config->load();
                 $min_daily_value = $GLOBALS['sistem_config']->MINIMUM_DAILY_VALUE;            
 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
                 $datas['check_pass'] = false;
                 $datas['client_login'] = $this->session->userdata('login');
 
@@ -1175,7 +1188,8 @@ class Welcome extends CI_Controller {
         
         if ($this->session->userdata('role_id')==user_role::CLIENT){
             if($this->session->userdata('status_id') != user_status::DELETED){
-                $datas = $this->input->post();                
+		    $datas = $this->input->post();                
+		    $datas = $_POST;
                 $campaing_id = $datas['campaing_id'];
                 
                 $campaings = $this->client_model->load_campaings($this->session->userdata('id'), $campaing_id);
@@ -1208,7 +1222,8 @@ class Welcome extends CI_Controller {
         if ($this->session->userdata('role_id')==user_role::CLIENT){
             if($this->session->userdata('status_id') != user_status::DELETED){
                 $datas = $this->input->post();                
-                
+		$datas = $_POST;
+
                 $init_date = $this->session->userdata('init_day');
                 $end_date = $this->session->userdata('end_day');
                 
@@ -1271,8 +1286,10 @@ class Welcome extends CI_Controller {
                 $this->session->userdata('status_id') != user_status::DELETED && 
                 $this->session->userdata('status_id') != user_status::DONT_DISTURB){            
                 
-                $datas = $this->input->post();                
-                $profiles_in_campaing = $this->client_model->get_campaings_and_profiles($this->session->userdata('id'), $datas['id_campaing']);
+		$datas = $this->input->post();                
+		$datas = $_POST;
+		
+		$profiles_in_campaing = $this->client_model->get_campaings_and_profiles($this->session->userdata('id'), $datas['id_campaing']);
                 
                 //any record has the value 'campaing_status_id', so i use the index 0 :)
                 if( $profiles_in_campaing[0]['campaing_status_id'] == campaing_status::CREATED ||
@@ -1345,7 +1362,9 @@ class Welcome extends CI_Controller {
                 $this->session->userdata('status_id') != user_status::DELETED && 
                 $this->session->userdata('status_id') != user_status::DONT_DISTURB){            
                 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
+
                 $campaing_row = $this->client_model->client_get_campaings($this->session->userdata('id'),'*',$datas['id_campaing']);
                                 
                 if( $campaing_row['campaing_status_id'] == campaing_status::ACTIVE ){
@@ -1403,7 +1422,9 @@ class Welcome extends CI_Controller {
                 $this->session->userdata('status_id') != user_status::DELETED && 
                 $this->session->userdata('status_id') != user_status::DONT_DISTURB){            
                 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
+
                 $campaing_row = $this->client_model->client_get_campaings($this->session->userdata('id'),'*', $datas['id_campaing']);
                                 
                 if($campaing_row && $campaing_row['campaing_status_id'] != campaing_status::DELETED ){
@@ -1466,7 +1487,9 @@ class Welcome extends CI_Controller {
                 $GLOBALS['sistem_config'] = $this->system_config->load();
                 $max_amount = $GLOBALS['sistem_config']->REFERENCE_PROFILE_AMOUNT;            
 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
+
                 $profile = $datas['profile'];
                 $profile_insta = $datas['insta_id'];
                 $profile_type = $datas['profile_type'];
@@ -1581,7 +1604,9 @@ class Welcome extends CI_Controller {
                 $GLOBALS['sistem_config'] = $this->system_config->load();
                 $max_amount = $GLOBALS['sistem_config']->REFERENCE_PROFILE_AMOUNT;            
 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
+
                 $old_profile_row = $datas['old_profile'];                  
                 $id_campaing = $old_profile_row['campaing_id'];
 
@@ -1651,7 +1676,9 @@ class Welcome extends CI_Controller {
                 $this->session->userdata('status_id') != user_status::DELETED && 
                 $this->session->userdata('status_id') != user_status::DONT_DISTURB){
                 
-                $datas = $this->input->post();                
+		$datas = $this->input->post();                
+		$datas = $_POST;
+
                 $profile_insta = $datas['insta_id'];
                 $id_campaing = $datas['id_campaing'];
                 $campaing_row = $this->campaing_model->get_campaing($id_campaing);
@@ -1731,7 +1758,9 @@ class Welcome extends CI_Controller {
                 $GLOBALS['sistem_config'] = $this->system_config->load();
                 $min_daily_value = $GLOBALS['sistem_config']->MINIMUM_DAILY_VALUE;            
                 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
+
                 $new_daily_value = $datas['new_daily_value'];
                 
                 if($this->is_valid_currency( $new_daily_value && $new_daily_value >= $min_daily_value)){
@@ -1848,7 +1877,8 @@ class Welcome extends CI_Controller {
                 $this->session->userdata('status_id') != user_status::DELETED && 
                 $this->session->userdata('status_id') != user_status::DONT_DISTURB){            
                 
-                $datas = $this->input->get();
+		$datas = $this->input->get();
+		$datas = $_GET;
                 
                 $profile = $datas['profile'];
                 $id_campaing = $datas['id_campaing'];
@@ -1943,7 +1973,8 @@ class Welcome extends CI_Controller {
                 $this->session->userdata('status_id') != user_status::DELETED && 
                 $this->session->userdata('status_id') != user_status::DONT_DISTURB){            
                 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
                 
                 $profile = $datas['profile'];
                 $id_campaing = $datas['id_campaing'];
@@ -2010,7 +2041,8 @@ class Welcome extends CI_Controller {
                 $this->session->userdata('status_id') != user_status::DELETED && 
                 $this->session->userdata('status_id') != user_status::DONT_DISTURB){            
                 
-                $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
                 $profile = $datas['profile'];
                 $id_campaing = $datas['id_campaing'];
                 if(isset($id_campaing) && !is_numeric($id_campaing))
@@ -2075,7 +2107,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');        
         $this->load->model('class/credit_card_model');        
         if ($this->session->userdata('role_id')==user_role::CLIENT){            
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $message_error = $this->errors_in_credit_card_datas($datas['credit_card_name'],
                                                                 $datas['credit_card_number'],
                                                                 $datas['credit_card_cvc'], 
@@ -2129,7 +2162,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');        
         $this->load->model('class/credit_card_model');        
         if ($this->session->userdata('role_id')==user_role::CLIENT){            
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $message_error = $this->errors_in_credit_card_datas($datas['credit_card_name'],
                                                                 $datas['credit_card_number'],
                                                                 $datas['credit_card_cvc'], 
@@ -2173,7 +2207,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_model');        
         if ($this->session->userdata('role_id')==user_role::CLIENT){            
             
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $message_error = $this->errors_in_bank_ticket($datas['name_in_ticket'],
                                                             $datas['cpf'],
                                                             $datas['cep'], 
@@ -2267,7 +2302,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');        
         $this->load->model('class/credit_card_model');        
         if ($this->session->userdata('role_id')==user_role::CLIENT){            
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             if(!is_numeric($datas['option']) || $datas['option'] < 1 || $datas['option'] > 4){
                 $datas['option'] = 2;
             }
@@ -2324,7 +2360,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');        
         $this->load->model('class/user_model');        
         
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         $language = $datas['new_language'];
 
         if ($this->session->userdata('id')){            
@@ -2373,7 +2410,8 @@ class Welcome extends CI_Controller {
             $param['language'] = $GLOBALS['sistem_config']->LANGUAGE;
         $param['SERVER_NAME'] = $GLOBALS['sistem_config']->SERVER_NAME;
         $GLOBALS['language']=$param['language'];
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         $result = $this->gmail->send_client_contact_form($datas['name'], $datas['email'], $datas['message'], $datas['company'], $datas['telf']);
         if ($result['success']) {
             $result['message'] = $this->T('Mensagem enviada, agradecemos seu contato', array(), $GLOBALS['language']);
@@ -2580,7 +2618,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/bank_ticket_model');        
         $this->load->model('class/cupom_model');        
         if ($this->session->userdata('role_id')==user_role::CLIENT){            
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $cupom_code = trim($datas['code']);
             $document = substr($cupom_code, 9);
             $cupom_code = substr($cupom_code, 0, 8);            
@@ -2668,7 +2707,8 @@ class Welcome extends CI_Controller {
     }
 
     public function purchase() {
-        $datas = $this->input->get();
+	    $datas = $this->input->get();
+	    $datas = $_GET;
         if(isset($datas['access_token'])){
             $this->load->model('class/client_model');
             $client = $this->client_model->get_client_by_access_token($datas['access_token']); 
@@ -2862,7 +2902,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');          
         $login_by_client=false;
         if(!isset($datas)){
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $language=$this->input->get();
             $login_by_client=true;
         }
@@ -3423,7 +3464,8 @@ class Welcome extends CI_Controller {
 
     public function check_ticket_peixe_urbano() {
         $this->load->model('class/client_model');
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         if(true){
             $this->client_model->update_client($datas['pk'], array(
                 'ticket_peixe_urbano'=>$datas['cupao_number']));
@@ -3448,7 +3490,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');
         $origin_datas=$datas;
         if(!$datas){
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
              $GLOBALS['language']=$datas['language'];
         }
 
@@ -3551,7 +3594,8 @@ class Welcome extends CI_Controller {
         require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $origin_datas=$datas;        
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         $datas['plane_id']=intval($datas['plane_type']);
         $datas['ticket_bank_option']=intval($datas['ticket_bank_option']);
         
@@ -3706,7 +3750,8 @@ class Welcome extends CI_Controller {
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $origin_datas=$datas;
         if($datas==NULL)
-            $datas = $this->input->post();
+		//$datas = $this->input->post();
+		$datas = $_POST;
         $this->load->model('class/client_model');
         $query='SELECT status_id FROM users WHERE id='.$datas['pk'];
         $aaa=$this->client_model->execute_sql_query($query);   
@@ -4301,7 +4346,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');
         $this->load->model('class/client_model');
         if ($this->session->userdata('role_id') == user_role::CLIENT) {
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $datas['unfollow_total'] = (int) $datas['unfollow_total'];
             //if($this->session->userdata('unfollow_total')==!$datas['unfollow_total']){
             if ($datas['unfollow_total'] == 1) {
@@ -4329,7 +4375,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');
         $this->load->model('class/client_model');
         if ($this->session->userdata('role_id') == user_role::CLIENT) {
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $al=(int) $datas['autolike'];
             $this->client_model->update_client($this->session->userdata('id'), array(
                 'like_first' => $al
@@ -4350,7 +4397,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');
         $this->load->model('class/client_model');
         if ($this->session->userdata('role_id') == user_role::CLIENT) {
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $pp = (int) $datas['play_pause'];
             $this->client_model->update_client($this->session->userdata('id'), array(
                 'paused' => $pp
@@ -4399,7 +4447,8 @@ class Welcome extends CI_Controller {
             $this->load->model('class/user_model');
             $this->load->model('class/user_status');
             $this->load->model('class/credit_card_status');
-            $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
             $now = time();
             if($this->validate_post_credit_card_datas($datas)) {
                 $client_data = $this->client_model->get_client_by_id($this->session->userdata('id'))[0];                               
@@ -4946,7 +4995,8 @@ class Welcome extends CI_Controller {
             $param['language'] = $GLOBALS['sistem_config']->LANGUAGE;    
         $param['SERVER_NAME'] = $GLOBALS['sistem_config']->SERVER_NAME;  
         $GLOBALS['language']=$param['language'];
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         $result = $this->Gmail->send_client_contact_form($datas['name'], $datas['email'], $datas['message'], $datas['company'], $datas['telf']);
         if ($result['success']) {
             $result['message'] = $this->T('Mensagem enviada, agradecemos seu contato', array(), $GLOBALS['language']);
@@ -5253,7 +5303,8 @@ class Welcome extends CI_Controller {
         if($this->session->userdata('id')){
             $cookies=json_decode($this->session->userdata('cookies'));
             //$datas = $this->input->post();
-            $datas = $this->input->get();
+	    $datas = $this->input->get();
+	    $datas = $_GET;
             $str=$datas['str'];
             $profile_type=$datas['profile_type'];            
             $mid=$cookies->mid;
@@ -5301,7 +5352,8 @@ class Welcome extends CI_Controller {
     }
     
     public function admin_making_client_login(){
-        $datas = $this->input->get();
+	    $datas = $this->input->get();
+	    $datas = $_GET;
         $datas['user_pass']=urldecode($datas['user_pass']);
         $result=$this->user_do_login($datas);
         if($result['authenticated']===true){
@@ -5320,7 +5372,8 @@ class Welcome extends CI_Controller {
     public function scielo() {
         require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         $datas['amount_in_cents'] = 100;
         $resp = $this->check_mundipagg_credit_card($datas);
         if (is_object($resp) && $resp->isSuccess()) {
@@ -6073,7 +6126,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');                
         $this->load->model('class/system_config');
         $this->load->model('class/user_model');
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         $language = $datas['new_language'];
         
         $param = array(); 
@@ -6104,7 +6158,8 @@ class Welcome extends CI_Controller {
         $this->load->model('class/user_role');                
         $this->load->model('class/system_config');
         $this->load->model('class/user_model');
-        $datas = $this->input->get();
+	$datas = $this->input->get();
+	$datas = $_GET;
         $language = $datas['language'];
         
         $param = array(); 

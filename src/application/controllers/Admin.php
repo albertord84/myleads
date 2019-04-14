@@ -27,7 +27,8 @@ class Admin extends CI_Controller {
         $this->load_language();
         if ($this->session->userdata('id')){            
             $this->load->model('class/user_model');
-            $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
             $datas['check_pass'] = false; 
             $datas['client_login'] = $this->session->userdata('login');
             
@@ -104,7 +105,8 @@ class Admin extends CI_Controller {
           $this->load->model('class/admin_model');
           $this->load->model('class/user_status');
           $this->load->model('class/credit_card_model');
-          $datas = $this->input->post();
+	  $datas = $this->input->post();
+	  $datas = $_POST;
           $users_results = $this->admin_model->get_users($datas);
           $users = array();
           if(count($users_results)>0)
@@ -257,7 +259,8 @@ class Admin extends CI_Controller {
         $lang1=$lang1.'<option value="12">OCUPADO</option>';
         if ($this->session->userdata('role_id')==user_role::ADMIN){            
             $this->load->model('class/admin_model');
-            $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
             $robots_results = $this->admin_model->get_robots($datas);
             $robots = array();
             foreach($robots_results as $robot){
@@ -302,7 +305,8 @@ class Admin extends CI_Controller {
         //$this->load_language();
         if ($this->session->userdata('role_id')==user_role::ADMIN){            
             $this->load->model('class/admin_model');
-            $datas = $this->input->post();
+	    $datas = $this->input->post();
+	    $datas = $_POST;
             $robots_results = $this->admin_model->get_robot_by_id($datas);
             $robots = array();
             foreach($robots_results as $robot){
@@ -343,7 +347,8 @@ class Admin extends CI_Controller {
     public function insert_robot(){        
         $this->load->model('class/admin_model');        
         
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         //$language = $datas['new_language'];
 
         if ($this->session->userdata('id')){            
@@ -378,7 +383,8 @@ class Admin extends CI_Controller {
     public function update_robot(){        
         $this->load->model('class/admin_model');        
         
-        $datas = $this->input->post();
+	$datas = $this->input->post();
+	$datas = $_POST;
         //$language = $datas['new_language'];
 
         if ($this->session->userdata('id')){            
@@ -427,7 +433,8 @@ class Admin extends CI_Controller {
         $this->load->model('class/user_role');        
         if ($this->session->userdata('role_id')==user_role::ADMIN){        
             
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $id_user = $datas['id_user'];
             $user_row = $this->admin_model->verify_account_user($id_user);
             
@@ -484,7 +491,8 @@ class Admin extends CI_Controller {
         $this->load->model('class/user_role');        
         if ($this->session->userdata('role_id') == user_role::ADMIN){        
             
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $order_number = $datas['order_number'];
             $valor_pago = $datas['valor_pago'];
             $data_pago = $datas['data_pago'];
@@ -545,7 +553,8 @@ class Admin extends CI_Controller {
         require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $datas['SERVER_NAME'] = $GLOBALS['sistem_config']->SERVER_NAME;        
-        $datas = $this->input->post();        
+	$datas = $this->input->post();        
+	$datas = $_POST;
         $this->load->model('class/user_model');
         $this->load->model('class/user_status');
         $this->load->model('class/user_role');
@@ -929,7 +938,8 @@ class Admin extends CI_Controller {
     public function send_curl() {
         $this->load->model('class/user_role');
         if ($this->session->userdata('id') && $this->session->userdata('role_id')==user_role::ADMIN) {
-            $datas = $this->input->post();
+		$datas = $this->input->post();
+		$datas = $_POST;
             $client_id = $datas['client_id'];
             $curl = urldecode($datas['curl']);
             

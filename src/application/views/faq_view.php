@@ -27,9 +27,9 @@
         <!-- Bootstrap -->
         <link href="https://dumbu.pro/leads/src/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"  />
         <!--<link href="https://dumbu.pro/leads/src/assets/bootstrap/css/loading.css" rel="stylesheet" />-->
-        <!--<link href="https://dumbu.pro/follows/src/assets/bootstrap/css/style.css" rel="stylesheet"/>-->
+        <!--<link href="https://doorig.comassets/bootstrap/css/style.css" rel="stylesheet"/>-->
 <!--        <link rel="stylesheet" type="text/css" href="https://dumbu.pro/leads/src/assets/css/style2.css" />
-        <link rel="stylesheet" type="text/css" href="https://dumbu.pro/follows/src/assets/css/stylenew.css" />
+        <link rel="stylesheet" type="text/css" href="https://doorig.comassets/css/stylenew.css" />
         <link rel="stylesheet" type="text/css" href="https://dumbu.pro/leads/src/assets/css/estilo.css" />
         <link rel="stylesheet" type="text/css" href="https://dumbu.pro/leads/src/assets/css/media.css" />
         <link rel="stylesheet" type="text/css" href="https://dumbu.pro/leads/src/assets/font-awesome/font-awesome.min.css" />
@@ -47,31 +47,31 @@
 
         <!--<script type="text/javascript" src="https://dumbu.pro/leads/src/assets/js/user.js?"></script>
         <script type="text/javascript" src="https://dumbu.pro/leads/src/assets/js/sign_painel.js"></script>
-        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/js/controllers.js"></script>--> 
-        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/bootstrap/js/bootstrapold.min.js"></script>
+        <script type="text/javascript" src="https://doorig.comassets/js/controllers.js"></script>--> 
+        <script type="text/javascript" src="https://doorig.comassets/bootstrap/js/bootstrapold.min.js"></script>
 
-        <!--<link href="https://dumbu.pro/follows/src/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"  />-->
-        <link href="https://dumbu.pro/follows/src/assets/bootstrap/css/loading.css" rel="stylesheet" />
-        <link href="https://dumbu.pro/follows/src/assets/bootstrap/css/style.css" rel="stylesheet"/>
-        <link rel="stylesheet" type="text/css" href="https://dumbu.pro/follows/src/assets/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="https://dumbu.pro/follows/src/assets/css/stylenew.css" />
-        <link rel="stylesheet" type="text/css" href="https://dumbu.pro/follows/src/assets/css/defaultnew.css" />
-        <link rel="stylesheet" type="text/css" href="https://dumbu.pro/follows/src/assets/fonts/font-awesome.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://dumbu.pro/follows/src/assets/css/component.css" />
-        <link rel="stylesheet" href="https://dumbu.pro/follows/src/assets/css/ladda-themeless.min.css">
+        <!--<link href="https://doorig.comassets/bootstrap/css/bootstrap.min.css" rel="stylesheet"  />-->
+        <link href="https://doorig.comassets/bootstrap/css/loading.css" rel="stylesheet" />
+        <link href="https://doorig.comassets/bootstrap/css/style.css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="https://doorig.comassets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="https://doorig.comassets/css/stylenew.css" />
+        <link rel="stylesheet" type="text/css" href="https://doorig.comassets/css/defaultnew.css" />
+        <link rel="stylesheet" type="text/css" href="https://doorig.comassets/fonts/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://doorig.comassets/css/component.css" />
+        <link rel="stylesheet" href="https://doorig.comassets/css/ladda-themeless.min.css">
         
-        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/js/modernizr.custom.js"></script>                
-        <script src="https://dumbu.pro/follows/src/assets/js/spin.min.js"></script>
-        <script src="https://dumbu.pro/follows/src/assets/js/ladda.min.js"></script>                
-        <!--<script type="text/javascript">var base_url = 'https://dumbu.pro/follows/src/';</script>-->
+        <script type="text/javascript" src="https://doorig.comassets/js/modernizr.custom.js"></script>                
+        <script src="https://doorig.comassets/js/spin.min.js"></script>
+        <script src="https://doorig.comassets/js/ladda.min.js"></script>                
+        <!--<script type="text/javascript">var base_url = 'https://doorig.com';</script>-->
         <!--<script type="text/javascript">var language = 'PT';</script>-->
         <script type="text/javascript">var SERVER_NAME = 'PRO';</script>
-        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/js/PT/internalization.js?"></script>
-        <!--<script type="text/javascript" src="https://dumbu.pro/follows/src/assets/js/user.js?"></script>-->
-        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/js/sign_painel.js"></script>
-        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/js/talkme_painel.js"></script>                
-        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/js/controllers.js"></script> 
-<!--        <script type="text/javascript" src="https://dumbu.pro/follows/src/assets/bootstrap/js/bootstrapold.min.js"></script>
+        <script type="text/javascript" src="https://doorig.comassets/js/PT/internalization.js?"></script>
+        <!--<script type="text/javascript" src="https://doorig.comassets/js/user.js?"></script>-->
+        <script type="text/javascript" src="https://doorig.comassets/js/sign_painel.js"></script>
+        <script type="text/javascript" src="https://doorig.comassets/js/talkme_painel.js"></script>                
+        <script type="text/javascript" src="https://doorig.comassets/js/controllers.js"></script> 
+<!--        <script type="text/javascript" src="https://doorig.comassets/bootstrap/js/bootstrapold.min.js"></script>
 -->
             <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js';?>"></script>        
             <script type="text/javascript" src="<?php echo base_url().'assets/js/faq_page.js?'.$SCRIPT_VERSION;?>"></script>                
@@ -186,8 +186,8 @@
 				<nav class="navbar navbar-default navbar-static-top">
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="logo pabsolute fleft100 text-center">
-						<a class="navbar-brand i-block" href="https://dumbu.pro/follows/src/index.php">
-                                                    <img alt="Brand" src="https://dumbu.pro/follows/src/assets/images/logo.png">
+						<a class="navbar-brand i-block" href="https://doorig.comindex.php">
+                                                    <img alt="Brand" src="https://doorig.comassets/images/logo.png">
 						</a>
 					</div>
 					<ul class="nav navbar-nav navbar-right menu-principal">
@@ -381,7 +381,7 @@ array(), $language); ?>
             
            
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-		<script src="https://dumbu.pro/follows/src/assets/js/jquery.dlmenu.js"></script>
+		<script src="https://doorig.comassets/js/jquery.dlmenu.js"></script>
 		<script>
 			$(function() {
 				$( '#dl-menu' ).dlmenu();
@@ -394,7 +394,7 @@ array(), $language); ?>
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!--<button id="btn_modal_close" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                                              <img src="https://dumbu.pro/follows/src/assets/images/FECHAR.png" alt="cancel"> <!--<spam aria-hidden="true">&times;</spam>
+                                                                                                              <img src="https://doorig.comassets/images/FECHAR.png" alt="cancel"> <!--<spam aria-hidden="true">&times;</spam>
                                 </button>-->
                                 <h5 class="modal-title" id="myModalLabel"><b>Mensagem</b></h5>                        
                             </div>
@@ -411,12 +411,12 @@ array(), $language); ?>
                 </div> 
                 
         <!-- Afilio Master Tag Home Page-->
-                                <script type="text/javascript" src="https://secure.afilio.com.br/?progid=2289&type=homepage&id_partner=dumbupro&url_product=https://dumbu.pro/follows/src/"></script>        
+                                <script type="text/javascript" src="https://secure.afilio.com.br/?progid=2289&type=homepage&id_partner=dumbupro&url_product=https://doorig.com"></script>        
                                 
     
     <div class="container">
         <div class="col-md-3 col-sm-3 col-xs-12"><br></div>
-            <footer class="text-center fleft100 m-t30 m-b10"><img src="https://dumbu.pro/follows/src/assets/images/logo-footer.png" class="wauto" alt="Dumbu Footer Logo"></footer>
+            <footer class="text-center fleft100 m-t30 m-b10"><img src="https://doorig.comassets/images/logo-footer.png" class="wauto" alt="Dumbu Footer Logo"></footer>
     </div>
                     
     

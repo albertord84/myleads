@@ -2424,7 +2424,7 @@ class Welcome extends CI_Controller {
         $this->is_ip_hacker();
         $this->load->model('class/system_config');
         $GLOBALS['sistem_config'] = $this->system_config->load();
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/leads/src/application/libraries/Payment.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/leads/src/application/libraries/Payment.php';
         $Payment = new \leads\cls\Payment();
         $payment_data['credit_card_number'] = $datas['credit_card_number'];
         $payment_data['credit_card_name'] = $datas['credit_card_name'];
@@ -2446,7 +2446,7 @@ class Welcome extends CI_Controller {
         $this->is_ip_hacker();
         $this->load->model('class/system_config');
         $GLOBALS['sistem_config'] = $this->system_config->load();
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/leads/src/application/libraries/Payment.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/leads/src/application/libraries/Payment.php';
         $Payment = new \leads\cls\Payment();
         
         $payment_data['AmountInCents']=$datas['AmountInCents'];
@@ -2660,7 +2660,7 @@ class Welcome extends CI_Controller {
 //------------desenvolvido para DUMBU-FOLLOW-UNFOLLOW-------------------
 
     public function language() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $param['language'] = $GLOBALS['sistem_config']->LANGUAGE;
         $this->load->library('recaptcha');
@@ -2688,7 +2688,7 @@ class Welcome extends CI_Controller {
             $this->load->model('class/user_model');
             $this->user_model->insert_washdog($this->session->userdata('id'),'SUCCESSFUL PURCHASE');            
             $this->user_model->insert_watchdog($this->session->userdata('id'),'SUCCESSFUL PURCHASE');            
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             $datas['user_id'] = $this->session->userdata('id');
             $datas['profiles'] = $this->create_profiles_datas_to_display();            
@@ -2715,7 +2715,7 @@ class Welcome extends CI_Controller {
     }
 
     public function client_dumbu_old() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $this->load->model('class/user_role');
         $this->load->model('class/user_model');
@@ -2733,7 +2733,7 @@ class Welcome extends CI_Controller {
             $datas1['SERVER_NAME'] = $GLOBALS['sistem_config']->SERVER_NAME;
             $datas1['WHATSAPP_PHONE'] = $GLOBALS['sistem_config']->WHATSAPP_PHONE;
             $datas1['SCRIPT_VERSION'] = $GLOBALS['sistem_config']->SCRIPT_VERSION;
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
             $this->Robot = new \dumbu\cls\Robot();
             $datas1['MAX_NUM_PROFILES'] = $GLOBALS['sistem_config']->REFERENCE_PROFILE_AMOUNT;
             //$my_profile_datas = $this->Robot->get_insta_ref_prof_data($this->session->userdata('login'));
@@ -2867,7 +2867,7 @@ class Welcome extends CI_Controller {
             $login_by_client=true;
         }
 
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         if(isset($language['language']))
             $param['language']=$language['language'];
@@ -2923,7 +2923,7 @@ class Welcome extends CI_Controller {
             $language=$this->input->get();
             $login_by_client=true;
         } */      
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         if(isset($language['language']))
             $param['language']=$language['language'];
@@ -3440,7 +3440,7 @@ class Welcome extends CI_Controller {
     //Sign-in functions
     //Passo 1. Chequeando usuario em IG
     public function check_user_for_sing_in($datas=NULL) { //sign in with passive instagram profile verification
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $this->load->model('class/client_model');
         $this->load->model('class/user_model');
@@ -3548,7 +3548,7 @@ class Welcome extends CI_Controller {
     
     //Passo 2.1 Pagamento por boleto bancario
     public function check_client_ticket_bank($datas=NULL) {  
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $origin_datas=$datas;        
         $datas = $this->input->post();
@@ -3702,7 +3702,7 @@ class Welcome extends CI_Controller {
     
     //Passo 2.2 CChequeando datos bancarios y guardando datos y estado del cliente pagamento     
     public function check_client_data_bank($datas=NULL) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $origin_datas=$datas;
         if($datas==NULL)
@@ -3846,7 +3846,7 @@ class Welcome extends CI_Controller {
 
     public function do_payment_by_plane($datas, $initial_value, $recurrency_value) {
         $this->load->model('class/client_model');
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         
         //Amigos de Pedro
@@ -4261,7 +4261,7 @@ class Welcome extends CI_Controller {
         $payment_data['credit_card_cvc'] = $datas['credit_card_cvc'];
         $payment_data['amount_in_cents'] = $datas['amount_in_cents'];
         $payment_data['pay_day'] = $datas['pay_day'];
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Payment.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Payment.php';
         $Payment = new \dumbu\cls\Payment();
         $bandeira = $this->detectCardType($payment_data['credit_card_number']);
         
@@ -4291,7 +4291,7 @@ class Welcome extends CI_Controller {
     }
 
     public function delete_recurrency_payment($order_key) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Payment.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Payment.php';
         $Payment = new \dumbu\cls\Payment();
         $response = $Payment->delete_payment($order_key);
         return $response;
@@ -4384,7 +4384,7 @@ class Welcome extends CI_Controller {
     }
     
     public function update_client_datas() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $language=$this->input->get();
         if(isset($language['language']))
@@ -4653,7 +4653,7 @@ class Welcome extends CI_Controller {
     //functions for geolocalizations
     public function client_insert_geolocalization() {
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();      
             $language=$this->input->get();
             if(isset($language['language']))
@@ -4742,7 +4742,7 @@ class Welcome extends CI_Controller {
         
     public function client_desactive_geolocalization() {
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config(); 
             $language=$this->input->get();
             if(isset($language['language']))
@@ -4773,7 +4773,7 @@ class Welcome extends CI_Controller {
     
     public function check_insta_geolocalization($profile) {
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
             $this->Robot = new \dumbu\cls\Robot();
             $datas_of_profile = $this->Robot->get_insta_geolocalization_data_from_client(json_decode($this->session->userdata('cookies')),$profile);
             if (is_object($datas_of_profile)) {
@@ -4789,7 +4789,7 @@ class Welcome extends CI_Controller {
     public function client_insert_profile() {
         $id = $this->session->userdata('id');
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             $language=$this->input->get();
             if(isset($language['language']))
@@ -4875,7 +4875,7 @@ class Welcome extends CI_Controller {
 
     public function client_desactive_profiles() {
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             $language=$this->input->get();
             if(isset($language['language']))
@@ -4908,7 +4908,7 @@ class Welcome extends CI_Controller {
 
     public function check_insta_profile($profile) {
         //if ($this->session->userdata('id')) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
         $this->Robot = new \dumbu\cls\Robot();       
         $data = $this->Robot->get_insta_ref_prof_data($profile);
         if (is_object($data)) {
@@ -4920,7 +4920,7 @@ class Welcome extends CI_Controller {
     }    
     
     public function check_insta_profile_from_client($profile) {        
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
         $this->Robot = new \dumbu\cls\Robot();       
         $data = $this->Robot->get_insta_ref_prof_data_from_client(json_decode($this->session->userdata('cookies')),$profile);
         if(is_object($data)){
@@ -4935,8 +4935,8 @@ class Welcome extends CI_Controller {
     }
     
     public function message_old() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Gmail.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Gmail.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $this->Gmail = new \dumbu\cls\Gmail();
         $language=$this->input->get();
@@ -4955,8 +4955,8 @@ class Welcome extends CI_Controller {
     }
     
     public function email_success_buy_to_atendiment($username, $useremail) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Gmail.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Gmail.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new \dumbu\cls\system_config();
         $this->Gmail = new \dumbu\cls\Gmail();
         $result = $this->Gmail->send_new_client_payment_done($username, $useremail);
@@ -4966,8 +4966,8 @@ class Welcome extends CI_Controller {
     }
 
     public function email_success_buy_to_client($useremail, $username, $userlogin, $userpass) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Gmail.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Gmail.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new \dumbu\cls\system_config();
         $this->Gmail2 = new \dumbu\cls\Gmail();
         $result = $this->Gmail2->send_client_payment_success($useremail, $username, $userlogin, $userpass);
@@ -4989,7 +4989,7 @@ class Welcome extends CI_Controller {
     }
 
     public function is_insta_user($client_login, $client_pass, $force_login) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
         $this->Robot = new \dumbu\cls\Robot();
         $data_insta = NULL;
         $login_data = $this->Robot->bot_login($client_login, $client_pass,$force_login);
@@ -5100,7 +5100,7 @@ class Welcome extends CI_Controller {
 
     public function create_profiles_datas_to_display() {
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
             $this->Robot = new \dumbu\cls\Robot();
             $this->load->model('class/client_model');
             $array_profiles=array();
@@ -5188,7 +5188,7 @@ class Welcome extends CI_Controller {
     }
 
     public function dicas_geoloc() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $param['language'] = $GLOBALS['sistem_config']->LANGUAGE;        
         $this->load->model('class/user_model');
@@ -5198,7 +5198,7 @@ class Welcome extends CI_Controller {
     }
     
     public function help() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $language=$this->input->get();
         if(isset($language['language']))
@@ -5209,7 +5209,7 @@ class Welcome extends CI_Controller {
     }
     
     public function FAQ_function($language) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $result['SERVER_NAME']= $GLOBALS['sistem_config']->SERVER_NAME;
         $language=$this->input->get();
@@ -5318,7 +5318,7 @@ class Welcome extends CI_Controller {
     }
 
     public function scielo() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $datas = $this->input->post();
         $datas['amount_in_cents'] = 100;
@@ -5394,7 +5394,7 @@ class Welcome extends CI_Controller {
         
     public function insert_profile_in_black_list(){
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();            
             if(isset($language['language']))
                 $param['language']=$language['language'];
@@ -5428,7 +5428,7 @@ class Welcome extends CI_Controller {
     
     public function delete_client_from_black_list(){
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             if(isset($language['language']))
                 $param['language']=$language['language'];
@@ -5474,7 +5474,7 @@ class Welcome extends CI_Controller {
     
     public function insert_profile_in_white_list(){
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             if(isset($language['language']))
                 $param['language']=$language['language'];
@@ -5507,7 +5507,7 @@ class Welcome extends CI_Controller {
     
     public function delete_client_from_white_list(){
         if ($this->session->userdata('id')) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             if(isset($language['language']))
                 $param['language']=$language['language'];
@@ -5537,7 +5537,7 @@ class Welcome extends CI_Controller {
     }
     
     public function update_client_after_retry_payment_success($user_id) {  
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();        
         $this->load->model('class/client_model');
         $this->load->model('class/user_model');
@@ -5789,7 +5789,7 @@ class Welcome extends CI_Controller {
     }
         
     /*public function cancel_blocked_by_payment_by_max_retry_payment(){
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $this->load->model('class/user_model');
         $this->load->model('class/client_model');        
@@ -5826,7 +5826,7 @@ class Welcome extends CI_Controller {
     }*/
     
     public function capturer_and_recurrency_for_blocked_by_payment(){
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $this->load->model('class/user_model');
         $this->load->model('class/client_model');
@@ -5914,7 +5914,7 @@ class Welcome extends CI_Controller {
     }    
 
     public function cancel_blocked_by_payment_by_max_retry_payment(){
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $this->load->model('class/user_model');
         $this->load->model('class/client_model');
@@ -5991,7 +5991,7 @@ class Welcome extends CI_Controller {
     }
     
     public function security_code_request() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
         $this->Robot = new \dumbu\cls\Robot();
         $this->load->model('class/user_role');
         $this->load->model('class/user_model');
@@ -6040,7 +6040,7 @@ class Welcome extends CI_Controller {
     }
     
     public function security_code_confirmation() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
         $this->Robot = new \dumbu\cls\Robot();
         $this->load->model('class/user_role');
         

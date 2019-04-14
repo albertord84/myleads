@@ -177,9 +177,9 @@ class Daily_Payment {   //extends CI_Controller {
     
     public function check_mundipagg_credit_card($datas) {
         //$this->is_ip_hacker();
-        //require_once $_SERVER['DOCUMENT_ROOT'] . '/leads/worker/class/system_config.php';
+        //require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/leads/worker/class/system_config.php';
         //$GLOBALS['sistem_config'] = new system_config();
-        //require_once $_SERVER['DOCUMENT_ROOT'] . '/leads/worker/class/Payment.php';
+        //require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/leads/worker/class/Payment.php';
         $Payment = new Payment();
         $payment_data['credit_card_number'] = $datas['credit_card_number'];
         $payment_data['credit_card_name'] = $datas['credit_card_name'];
@@ -273,7 +273,7 @@ class Daily_Payment {   //extends CI_Controller {
     }
     
     public function do_payment($payment_data) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Payment.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Payment.php';
         // Check client payment in mundipagg
         $Payment = new \dumbu\cls\Payment();
         $response = $Payment->create_recurrency_payment($payment_data);
@@ -282,7 +282,7 @@ class Daily_Payment {   //extends CI_Controller {
     }
     
     public function do_bilhete_payment($payment_data) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Payment.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Payment.php';
         // Check client payment in mundipagg
         //$Payment = new \dumbu\cls\Payment();
         $response = $Payment->create_boleto_payment($payment_data);
@@ -291,7 +291,7 @@ class Daily_Payment {   //extends CI_Controller {
     }
 
     public function check_payment() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         echo "Check Payment Inited...!<br>\n";
         echo date("Y-m-d h:i:sa");
@@ -368,8 +368,8 @@ class Daily_Payment {   //extends CI_Controller {
     }
 
     public function check_client_payment($client) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Payment.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Payment.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         // Check client payment in mundipagg
         $Payment = new \dumbu\cls\Payment();
@@ -500,8 +500,8 @@ class Daily_Payment {   //extends CI_Controller {
     }
 
     public function send_payment_email($client, $diff_days = 0) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Gmail.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Gmail.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new \dumbu\cls\system_config();
         $this->Gmail = new \dumbu\cls\Gmail();
         //$datas = $this->input->post();

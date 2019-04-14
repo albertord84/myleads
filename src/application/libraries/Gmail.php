@@ -6,7 +6,7 @@
     //This should be done in your php.ini, but this is how to do it if you don't have access to that
     date_default_timezone_set('Etc/UTC');
     //require_once 'libraries/PHPMailer-master/PHPMailerAutoload.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/leads/src/externals/PHPMailer-master/PHPMailerAutoload.php';
+    require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/leads/src/externals/PHPMailer-master/PHPMailerAutoload.php';
     class Gmail {
         public $mail = NULL;
         public function __construct() {

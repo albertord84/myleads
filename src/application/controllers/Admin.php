@@ -542,7 +542,7 @@ class Admin extends CI_Controller {
     //------------ADMIN desenvolvido para DUMBU-FOLLOWS-------------------
    
     public function admin_do_login() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $datas['SERVER_NAME'] = $GLOBALS['sistem_config']->SERVER_NAME;        
         $datas = $this->input->post();        
@@ -596,7 +596,7 @@ class Admin extends CI_Controller {
         $this->load->model('class/user_model');
         $this->load->model('class/user_role');
         if ($this->session->userdata('id') && $this->session->userdata('role_id')==user_role::ADMIN) {
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             $datas['SERVER_NAME'] = $GLOBALS['sistem_config']->SERVER_NAME;
             $query = 'SELECT DISTINCT utm_source FROM clients';
@@ -614,7 +614,7 @@ class Admin extends CI_Controller {
         if ($this->session->userdata('id') && $this->session->userdata('role_id')==user_role::ADMIN) {
             $this->load->model('class/admin_model');
             $form_filter = $this->input->get();
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
             $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
             $datas['SERVER_NAME'] = $GLOBALS['sistem_config']->SERVER_NAME;
             $datas['result'] = $this->admin_model->view_clients_or_get_emails_by_filter($form_filter);
@@ -710,7 +710,7 @@ class Admin extends CI_Controller {
             $this->load->model('class/user_status');
             $id = $this->input->post()['id'];
             try {
-                require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/DB.php';
+                require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/DB.php';
                 $DB = new \dumbu\cls\DB();
                 $DB->delete_daily_work_client($id);
                 $this->user_model->update_user($id, array(
@@ -731,14 +731,14 @@ class Admin extends CI_Controller {
     }
 
     public function recorrency_cancel() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/system_config.php';
+        require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/system_config.php';
         $GLOBALS['sistem_config'] = new dumbu\cls\system_config();
         $this->load->model('class/user_role');
         if ($this->session->userdata('id') && $this->session->userdata('role_id')==user_role::ADMIN) {
             $this->load->model('class/client_model');
             $id = $this->input->post()['id'];
             $client = $this->client_model->get_client_by_id($id)[0];
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Payment.php';
+            require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Payment.php';
             $Payment = new \dumbu\cls\Payment();
             $status_cancelamento=0;
             if(count($client['initial_order_key'])>3){
@@ -934,7 +934,7 @@ class Admin extends CI_Controller {
             $curl = urldecode($datas['curl']);
             
             try {
-                require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/Robot.php';
+                require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/Robot.php';
                 $Robot = new \dumbu\cls\Robot();
                 $Robot->set_client_cookies_by_curl($client_id, $curl, NULL);
 //                $result['success'] = false;
@@ -960,7 +960,7 @@ class Admin extends CI_Controller {
             $client_id = $this->input->post()['client_id'];
             
             try {
-                require_once $_SERVER['DOCUMENT_ROOT'] . '/dumbu/worker/class/DB.php';
+                require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/dumbu/worker/class/DB.php';
                 (new \dumbu\cls\DB())->set_cookies_to_null($client_id);
             } catch (Exception $exc) {
                 $result['success'] = false;

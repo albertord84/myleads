@@ -9,7 +9,7 @@ namespace leads\cls {
     ini_set('xdebug.var_display_max_data', 1024);
     
     
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/leads/src/externals/mundipagg/init.php';
+    require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/leads/src/externals/mundipagg/init.php';
     //require_once 'system_config.php';
 //    require_once('libraries/mundipagg/init.php');
 //    require_once('class/system_config.php');
@@ -155,7 +155,7 @@ namespace leads\cls {
         public function create_boleto_payment($payment_data) {
             try {
                 // Carrega dependências
-                require_once $_SERVER['DOCUMENT_ROOT'] . '/leads/src/externals/MundiAPI-PHP/vendor/autoload.php';
+                require_once $GLOBALS['sistem_config']->BASE_PATH_URL . '/leads/src/externals/MundiAPI-PHP/vendor/autoload.php';
                 // Define a url utilizada
                 \Gateway\ApiClient::setBaseUrl("https://transactionv2.mundipaggone.com/"); 
 
